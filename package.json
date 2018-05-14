@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/hellomac87/react-express#readme",
   "dependencies": {
+    "prop-types": "^15.6.1",
     "react": "^15.3.1",
     "react-addons-update": "^15.6.2",
     "react-dom": "^15.3.1",
