@@ -13,6 +13,7 @@ export default class ContactDetails extends React.Component {
         this.handleToggle = this.handleToggle.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleEdit = this.handleEdit.bind(this);
+        this.handleKeyPress = this.handleKeyPress.bind(this);
     }
 
     handleToggle() {
@@ -33,12 +34,17 @@ export default class ContactDetails extends React.Component {
     handleChange(e) {
         let nextState = {};
         nextState[e.target.name] = e.target.value;
-        this.setState(nextState)
+        this.setState(nextState);
     }
-
 
     handleEdit() {
         this.props.onEdit(this.state.name, this.state.phone);
+    }
+
+    handleKeyPress(e){
+      if(e.charCode === 13){ //이벤트객체의 charCode 13 은 enter 이벤트라는 뜻
+        this.handleToggle();
+      }
     }
 
     render() {
@@ -69,6 +75,7 @@ export default class ContactDetails extends React.Component {
                         placeholder="phone"
                         value={this.state.phone}
                         onChange={this.handleChange}
+                        onKeyPress={this.handleKeyPress}
                     />
                 </p>
             </div>
